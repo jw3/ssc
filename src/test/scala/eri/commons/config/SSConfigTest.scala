@@ -119,6 +119,16 @@ class SSConfigTest extends FunSpec {
     }
 
   }
+  describe("implicit conversions") {
+    import Implicits._
+    val conf = new SSConfig()
+    it("should convert booleans") {
+
+
+      val trueAgain: Option[Boolean] = conf.booleans.trueAgain
+      assert(trueAgain.get)
+    }
+  }
   describe("miscellaneous features") {
     val conf = new SSConfig()
     it("should support system properties") {
